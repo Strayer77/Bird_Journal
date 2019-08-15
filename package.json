@@ -4,6 +4,10 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "start": "node server.js",
     "clean": "ionic-app-scripts clean",
@@ -37,7 +41,12 @@
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29",
     "typescript": "~2.6.2",
-    "@ionic/app-scripts": "3.2.2"
+    "@ionic/app-scripts": "3.2.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "@ionic/lab": "1.0.24"
