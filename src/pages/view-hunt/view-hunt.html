@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>View Hunt: {{ hunt.date }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+            <div class="hunt-date"><h1>{{ hunt.date }}</h1></div>
+        </ion-card-title>
+        <!--Only displays photo if photo was added by user-->
+        <img [src]="hunt.myPhoto" *ngIf="hunt.myPhoto !== null "/>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                <p><ion-icon name="custom-pheasantGroup-icon"></ion-icon> Coveys Found: {{ hunt.coveysFound }}</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div><p><ion-icon name="custom-quail-icon"></ion-icon> Birds Taken: {{ hunt.birdsTaken }} </p></div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="coords" full><p><ion-icon name="pin"></ion-icon>  {{ hunt.myLocation }}</p></div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <br>
+            <ion-col>
+              <div class="notes"><p>{{ hunt.content }}</p></div>
+            </ion-col>
+          </ion-row>
+        </ion-grid> 
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-4>
+        <button ion-button color="danger" block (click)="deleteHunt(hunt.createDate)">
+          Delete Hunt
+          <br>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>  
+  </ion-content>
+    
+  
+  

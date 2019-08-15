@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <img alt="logo" height="50" src="../../assets/imgs/Bird Journal-logo.png">
+      </ion-title>
+      <ion-buttons end>
+          <button type="button" ion-button icon-only (click)="addHunt()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let hunt of hunts | async" (click)="getHunt(hunt.createDate)" col-12>
+          <ion-card>
+            <ion-card-content>
+                <ion-item>
+                  <ion-thumbnail item-start>
+                    <img [src]="hunt.myPhoto" *ngIf="hunt.myPhoto !== null "/>
+                  </ion-thumbnail>
+                  <h1 class="hunt-date">{{ hunt.date }}</h1>
+                  <div>
+                    <ion-row>
+                      <ion-col>
+                        <p><ion-icon  *ngIf="hunt.coveysFound !== null " name="custom-pheasantGroup-icon"></ion-icon> : {{ hunt.coveysFound }} </p>
+                      </ion-col>
+                      <ion-col>
+                        <p><ion-icon *ngIf="hunt.birdsTaken !== null " name="custom-quail-icon"></ion-icon> : {{ hunt.birdsTaken }} </p>
+                      </ion-col>
+                      <ion-col></ion-col>
+                  </ion-row>
+                  </div>
+                </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <!--the async will return the results of the promise in the home.ts and 
+      put it in the template here-->
+      <!--<button ion-item *ngFor="let hunt of hunts | async" (click)="getHunt(hunt.createDate)">
+        {{ hunt.date }}
+      </button>-->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <button ion-button color="blazeorange" (click)="addHunt()" full>
+            New Hunt
+          </button>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+  
+  
